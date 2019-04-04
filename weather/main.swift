@@ -83,9 +83,35 @@ struct StoreItem: Codable { //useless for now
     let id : Int
 }
     
-func getWeatherByCityName(city : String, country : String) {
+func getWeatherByCityNameAndCountryCode(city : String, country : String) {
     let query: [String: String] = [
         "q" : city + "," + country,
+        "appid" : APPID
+    ]
+    let url = baseURL.withQueries(query)!
+    print(url)
+    let task = URLSession.shared.dataTask(with: url) { data, _, error in
+        guard let data = data, error == nil else {
+            //completion(nil, error ?? FetchError.unknownNetworkError)
+            return
+        }
+        do {
+            let response = try JSONDecoder().decode(Response.self, from: data)
+            print(response)
+            //completion(storeItems.results, nil)
+        } catch let parseError {
+            print(parseError)
+            print("doh")
+            //completion(nil, parseError)
+        }
+    }
+    task.resume()
+    //RunLoop.main.run()
+}
+
+func getWeatherByCityName(city : String) {
+    let query: [String: String] = [
+        "q" : city,
         "appid" : APPID
     ]
     let url = baseURL.withQueries(query)!
@@ -120,5 +146,9 @@ func findCityByName(city : String) {
         }catch{}
     }
 }
+print("Name&Code")
+print(getWeatherByCityNameAndCountryCode(city: "Paris", country: "fr"))
 
-print(getWeatherByCityName(city: "Paris", country: "fr"))
+print("Name")
+print(getWeatherByCityName(city: "London"))
+
