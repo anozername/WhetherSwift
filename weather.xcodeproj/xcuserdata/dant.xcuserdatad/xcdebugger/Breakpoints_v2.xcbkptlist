@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "weather/main.swift"
-            timestampString = "576107254.979676"
+            timestampString = "576110469.55485"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "getWeatherByCityName(city:)"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "getCurrentWeatherByCityName(city:)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "weather/main.swift"
-            timestampString = "576107254.980054"
+            timestampString = "576110469.554916"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "getWeatherByCityNameAndCountryCode(city:country:)"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getCurrentWeatherByCityNameAndCountryCode(city:country:)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "weather/main.swift"
-            timestampString = "576107254.9802589"
+            timestampString = "576110469.554974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "getWeatherByCityNameAndCountryCode(city:country:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "getCurrentWeatherByCityNameAndCountryCode(city:country:)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BED0768E2256B7940026FF86 /* CurrentWeatherStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED0768D2256B7940026FF86 /* CurrentWeatherStruct.swift */; };
+		BED076902256B7BF0026FF86 /* ForecastWeatherStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED0768F2256B7BF0026FF86 /* ForecastWeatherStruct.swift */; };
 		BEE48242225360F30077289B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE48241225360F30077289B /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BED0768D2256B7940026FF86 /* CurrentWeatherStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherStruct.swift; sourceTree = "<group>"; };
+		BED0768F2256B7BF0026FF86 /* ForecastWeatherStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherStruct.swift; sourceTree = "<group>"; };
 		BEE4823E225360F30077289B /* weather */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = weather; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE48241225360F30077289B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,7 +61,9 @@
 		BEE48240225360F30077289B /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				BED0768D2256B7940026FF86 /* CurrentWeatherStruct.swift */,
 				BEE48241225360F30077289B /* main.swift */,
+				BED0768F2256B7BF0026FF86 /* ForecastWeatherStruct.swift */,
 			);
 			path = weather;
 			sourceTree = "<group>";
@@ -120,7 +126,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BED0768E2256B7940026FF86 /* CurrentWeatherStruct.swift in Sources */,
 				BEE48242225360F30077289B /* main.swift in Sources */,
+				BED076902256B7BF0026FF86 /* ForecastWeatherStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
