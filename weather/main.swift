@@ -1,8 +1,10 @@
 import Foundation
-
+import Cocoa
 
 let APPID = "e7a6caa465aee8f94b57375dde1ba754"
 let baseURL = URL(string : "https://api.openweathermap.org/data/2.5/weather?q=")!
+let runLoop = CFRunLoopGetCurrent()
+
 
 extension URL {
     func withQueries(_ queries: [String: String]) -> URL? {
@@ -42,15 +44,15 @@ struct Weather : Codable {
 
 struct Main : Codable {
     let temp : Double
-    let pressure : Int
-    let humidity : Int
+    let pressure : Double
+    let humidity : Double
     let temp_min : Double
     let temp_max : Double
 }
 
 struct Wind : Codable {
     let speed : Double
-    let deg : Int
+    let deg : Double
 }
 
 struct Clouds : Codable {
@@ -58,8 +60,8 @@ struct Clouds : Codable {
 }
 
 struct Sys : Codable {
-    let type : Int
-    let id : Int
+    //let type : Int
+    //let id : Int
     let message : Double
     let country : String
     let sunrise : Int
@@ -79,11 +81,7 @@ struct Response: Codable {
     let name : String
 }
 
-struct StoreItem: Codable { //useless for now
-    let id : Int
-}
-    
-func getWeatherByCityNameAndCountryCode(city : String, country : String) {
+func getWeatherByCityNameAndCountryCode(city : String, country : String){
     let query: [String: String] = [
         "q" : city + "," + country,
         "appid" : APPID
@@ -92,24 +90,48 @@ func getWeatherByCityNameAndCountryCode(city : String, country : String) {
     print(url)
     let task = URLSession.shared.dataTask(with: url) { data, _, error in
         guard let data = data, error == nil else {
-            //completion(nil, error ?? FetchError.unknownNetworkError)
             return
         }
         do {
             let response = try JSONDecoder().decode(Response.self, from: data)
-            print(response)
-            //completion(storeItems.results, nil)
+            print("bulk :\(response)")
+            print("\nWeather : \(response.weather[0].description) in \(response.name)")
+            CFRunLoopStop(runLoop)
         } catch let parseError {
-            print(parseError)
-            print("doh")
-            //completion(nil, parseError)
+            print("bulk :\n\(parseError)")
+            print("the city name you had entered is unknow")
+            CFRunLoopStop(runLoop)
         }
     }
     task.resume()
-    //RunLoop.main.run()
 }
 
 func getWeatherByCityName(city : String) {
+    let query: [String: String] = [
+        "q" : city,
+        "appid" : APPID
+    ]
+    let url = baseURL.withQueries(query)!
+    print(url)
+    let task = URLSession.shared.dataTask(with: url) { data, _, error in
+        guard let data = data, error == nil else {
+            return
+        }
+        do {
+            let response = try JSONDecoder().decode(Response.self, from: data)
+            print("bulk :\n\(response)")
+            print("\nWeather : \(response.weather[0].description) in \(response.name)")
+            CFRunLoopStop(runLoop)
+        } catch let parseError {
+            print("bulk :\n\(parseError)")
+            print("the city name you had entered is unknow")
+            CFRunLoopStop(runLoop)
+        }
+    }
+    task.resume()
+}
+
+func findCityByName(city : String) {
     let query: [String: String] = [
         "q" : city,
         "appid" : APPID
@@ -123,32 +145,25 @@ func getWeatherByCityName(city : String) {
         }
         do {
             let response = try JSONDecoder().decode(Response.self, from: data)
-            print(response)
-            //completion(storeItems.results, nil)
+            print("bulk :\n\(response)")
+            print("\nWe found that : \(response.name) is in \(response.sys.country) at \(response.coord.lon) lon, \(response.coord.lat) lat")
+            CFRunLoopStop(runLoop)
         } catch let parseError {
-            print(parseError)
-            print("doh")
-            //completion(nil, parseError)
+            print("bulk :\n\(parseError)")
+            print("the city name you had entered is unknow")
+            CFRunLoopStop(runLoop)
         }
     }
     task.resume()
-    RunLoop.main.run()
 }
 
-func findCityByName(city : String) {
-    if let path = Bundle.main.path(forResource: "test", ofType: "json") {
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-            if let jsonResult = jsonResult as? City {
-                print("TODO")
-            }
-        }catch{}
-    }
-}
-print("Name&Code")
-print(getWeatherByCityNameAndCountryCode(city: "Paris", country: "fr"))
-
-print("Name")
-print(getWeatherByCityName(city: "London"))
-
+print("Please enter a known city name", terminator: ".\n")
+let name = readLine()
+print("\nstart 1")
+findCityByName(city: name!)
+CFRunLoopRun()
+print("end 1")
+print("\nstart 2")
+getWeatherByCityName(city: name!)
+CFRunLoopRun()
+print("end 2")
