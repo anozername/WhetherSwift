@@ -33,26 +33,38 @@ struct City : Codable {
     }
 }
 
+struct StoreItems: Codable {
+    let name: String
+}
+
+struct StoreItem: Codable { //useless for now
+    let id : Int
+}
+    
 func getWeatherByCityName(city : String, country : String) {
     let query: [String: String] = [
         "q" : city + "," + country,
         "appid" : APPID
     ]
     let url = baseURL.withQueries(query)!
-    let task = URLSession.shared.dataTask(with: url) {
-        (data, response, error) in
-        let jsonDecoder = JSONDecoder()
-        if let data = data,
-            let report = try? jsonDecoder.decode(TODO.self,from: data)
-        {
-            for result in report.results {
-                print("\'\(result.collectionName)\' par \'\(result.artistName)\'")
-            }
+    print(url)
+    let task = URLSession.shared.dataTask(with: url) { data, _, error in
+        guard let data = data, error == nil else {
+            //completion(nil, error ?? FetchError.unknownNetworkError)
+            return
         }
-        exit(EXIT_SUCCESS)
+        do {
+            let storeItems = try JSONDecoder().decode(StoreItems.self, from: data)
+            print(storeItems)
+            //completion(storeItems.results, nil)
+        } catch let parseError {
+            print(parseError)
+            print("doh")
+            //completion(nil, parseError)
+        }
     }
-        
     task.resume()
+    RunLoop.main.run()
 }
 
 func findCityByName(city : String) {
@@ -60,14 +72,11 @@ func findCityByName(city : String) {
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                if let jsonResult = jsonResult as? City {
-                    print("\'\(result.collectionName)\' par \'\(result.artistName)\'")
-                }
-        } catch {
-            
-        }
+            if let jsonResult = jsonResult as? City {
+                print("TODO")
+            }
+        }catch{}
     }
-    
 }
 
 print(getWeatherByCityName(city: "Paris", country: "fr"))
