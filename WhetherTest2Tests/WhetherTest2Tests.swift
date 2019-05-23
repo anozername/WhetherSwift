@@ -1,15 +1,15 @@
 //
-//  WeatherFrontTests.swift
-//  WeatherFrontTests
+//  WhetherTest2Tests.swift
+//  WhetherTest2Tests
 //
-//  Created by dant on 13/05/2019.
+//  Created by dant on 19/05/2019.
 //  Copyright © 2019 dant. All rights reserved.
 //
 
 import XCTest
-@testable import WeatherFront
+@testable import WhetherTest2
 
-class WeatherFrontTests: XCTestCase {
+class WhetherTest2Tests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

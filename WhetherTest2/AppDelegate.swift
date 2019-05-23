@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  WeatherFront
+//  WhetherTest2
 //
-//  Created by dant on 13/05/2019.
+//  Created by dant on 19/05/2019.
 //  Copyright © 2019 dant. All rights reserved.
 //
 
