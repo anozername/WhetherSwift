@@ -14,6 +14,8 @@
 		BEDFC4AA2298055700D178CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEDFC4A82298055700D178CD /* LaunchScreen.storyboard */; };
 		BEDFC4B52298055700D178CD /* WhetherSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDFC4B42298055700D178CD /* WhetherSwiftTests.swift */; };
 		BEDFC4C02298055700D178CD /* WhetherSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDFC4BF2298055700D178CD /* WhetherSwiftUITests.swift */; };
+		BEDFC4CF229813E400D178CD /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDFC4CE229813E400D178CD /* Weather.framework */; };
+		BEDFC4D122981ADA00D178CD /* Weather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEDFC4CE229813E400D178CD /* Weather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BEDFC4D222981ADA00D178CD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BEDFC4D122981ADA00D178CD /* Weather.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		BEDFC49C2298055600D178CD /* WhetherSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhetherSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEDFC49F2298055600D178CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +63,7 @@
 		BEDFC4BB2298055700D178CD /* WhetherSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhetherSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEDFC4BF2298055700D178CD /* WhetherSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhetherSwiftUITests.swift; sourceTree = "<group>"; };
 		BEDFC4C12298055700D178CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEDFC4CE229813E400D178CD /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEDFC4CF229813E400D178CD /* Weather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +99,7 @@
 				BEDFC4B32298055700D178CD /* WhetherSwiftTests */,
 				BEDFC4BE2298055700D178CD /* WhetherSwiftUITests */,
 				BEDFC49D2298055600D178CD /* Products */,
+				BEDFC4CD229813E300D178CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +144,14 @@
 			path = WhetherSwiftUITests;
 			sourceTree = "<group>";
 		};
+		BEDFC4CD229813E300D178CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BEDFC4CE229813E400D178CD /* Weather.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +162,7 @@
 				BEDFC4982298055600D178CD /* Sources */,
 				BEDFC4992298055600D178CD /* Frameworks */,
 				BEDFC49A2298055600D178CD /* Resources */,
+				BEDFC4D222981ADA00D178CD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -434,6 +462,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R2YWB6Q8YJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WhetherSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,6 +484,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R2YWB6Q8YJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WhetherSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
