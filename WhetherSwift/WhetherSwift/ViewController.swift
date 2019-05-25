@@ -12,8 +12,9 @@ import Weather
 class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var InputField: UITextField!
     @IBOutlet weak var TextZone: UITextView!
+    @IBOutlet weak var Spinn: UIActivityIndicatorView!
     let defaults = UserDefaults.standard
-    let weatherClient = WeatherClient(key: "e7a6caa465aee8f94b57375dde1ba754")
+    let weatherClient = WeatherClient(key: "e7a6caa465aee8f94b57375dde1ba754") // d4398ab9c5924d563949cf24f6881e50 or e7a6caa465aee8f94b57375dde1ba754
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,20 +32,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func SubmitButton(_ sender: UIButton) {
-
-        var something = ""
-        let task = weatherClient.weather(for: weatherClient.citiesSuggestions(for: "Paris")[0], completion: { data in
-            if let data = data {
-                //print(data) ok
-                something = String(decoding: data, as: UTF8.self)
-            } else {
-                // no data and no error... what happened???
+        Spinn.startAnimating()
+        let semaphore = DispatchSemaphore(value: 0)
+        TextZone.text = " "
+        var result = "Message ?"
+        let task = weatherClient.weather(for: weatherClient.citiesSuggestions(for: "Paris")[0], completion: { response in
+            if let data = response {
+                print("response ok")
+                self.TextZone.text = "Message : \(data)" // 63 sec pending
+                semaphore.signal()
+                self.Spinn.stopAnimating()
             }
         })
+        semaphore.wait()
+        
         if let input = defaults.string(forKey: "input"){
-            TextZone.text = something
+            // TextZone.text = result
+            print("submitted")
         }
     }
-    
 }
 
