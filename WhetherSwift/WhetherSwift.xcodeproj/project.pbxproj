@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE4DC2ED229C2EA2001269FA /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4DC2EC229C2EA2001269FA /* SearchTextField.swift */; };
 		BEDFC4A02298055600D178CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDFC49F2298055600D178CD /* AppDelegate.swift */; };
 		BEDFC4A22298055600D178CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDFC4A12298055600D178CD /* ViewController.swift */; };
 		BEDFC4A52298055600D178CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEDFC4A32298055600D178CD /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BE4DC2EC229C2EA2001269FA /* SearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		BEDFC49C2298055600D178CD /* WhetherSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhetherSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEDFC49F2298055600D178CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEDFC4A12298055600D178CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		BEDFC49E2298055600D178CD /* WhetherSwift */ = {
 			isa = PBXGroup;
 			children = (
+				BE4DC2EC229C2EA2001269FA /* SearchTextField.swift */,
 				BEDFC49F2298055600D178CD /* AppDelegate.swift */,
 				BEDFC4A12298055600D178CD /* ViewController.swift */,
 				BEDFC4A32298055600D178CD /* Main.storyboard */,
@@ -286,6 +289,7 @@
 			files = (
 				BEDFC4A22298055600D178CD /* ViewController.swift in Sources */,
 				BEDFC4A02298055600D178CD /* AppDelegate.swift in Sources */,
+				BE4DC2ED229C2EA2001269FA /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
