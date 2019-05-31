@@ -11,16 +11,22 @@
 import UIKit
 import Weather
 
+public var favoriteCities: [City] = []
+
+let weatherClient = WeatherClient(key: "d4398ab9c5924d563949cf24f6881e50") // d4398ab9c5924d563949cf24f6881e50 or e7a6caa465aee8f94b57375dde1ba754
+
 class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var InputField: SearchTextField!
     @IBOutlet weak var TextZone: UITextView!
     @IBOutlet weak var Spinn: UIActivityIndicatorView!
     var input = ""
-    let weatherClient = WeatherClient(key: "d4398ab9c5924d563949cf24f6881e50") // d4398ab9c5924d563949cf24f6881e50 or e7a6caa465aee8f94b57375dde1ba754
     
+    @IBOutlet weak var SearchBar: UISearchBar!
+
+    @IBOutlet weak var AddToFavorites: UITabBarItem!
+    @IBOutlet weak var TabBarFavorite: UITabBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         InputField.delegate = self
         self.InputField.filterStrings(["None"])
@@ -28,8 +34,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.InputField.text = item[itemPosition].title
             self.input = item[itemPosition].title
         }
+
     }
     
+    @IBOutlet var DisplaySearch: UISearchDisplayController!
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -57,6 +65,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         return true
     }
+    
+    @IBAction func SubmitTabBar(_ sender: UITabBarItem) {
+        favoriteCities.append(sender.value(forKey: "city") as! City)
+    }
 
     @IBAction func SubmitButton(_ sender: UIButton) {
         Spinn.startAnimating()
@@ -81,6 +93,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("result : '\(input)'")
         }
         Spinn.stopAnimating()
+        TabBarFavorite.isHidden = false
+        do {
+            AddToFavorites.setValue(try City(from : input as! Decoder), forKey: "city")
+        } catch {
+            print("dommage")
+        }
     }
 }
 

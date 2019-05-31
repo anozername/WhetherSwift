@@ -17,6 +17,9 @@
 		BEDFC4C02298055700D178CD /* WhetherSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDFC4BF2298055700D178CD /* WhetherSwiftUITests.swift */; };
 		BEDFC4CF229813E400D178CD /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDFC4CE229813E400D178CD /* Weather.framework */; };
 		BEDFC4D122981ADA00D178CD /* Weather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEDFC4CE229813E400D178CD /* Weather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BEE15D4622A1772300C5C055 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE15D4522A1772300C5C055 /* MainViewController.swift */; };
+		BEE15D4822A1C24D00C5C055 /* TableCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE15D4722A1C24D00C5C055 /* TableCellController.swift */; };
+		BEE15D4E22A1DA7F00C5C055 /* URLCellTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE15D4D22A1DA7F00C5C055 /* URLCellTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		BEDFC4BF2298055700D178CD /* WhetherSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhetherSwiftUITests.swift; sourceTree = "<group>"; };
 		BEDFC4C12298055700D178CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEDFC4CE229813E400D178CD /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
+		BEE15D4522A1772300C5C055 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		BEE15D4722A1C24D00C5C055 /* TableCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellController.swift; sourceTree = "<group>"; };
+		BEE15D4D22A1DA7F00C5C055 /* URLCellTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCellTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,9 @@
 				BEDFC4A62298055700D178CD /* Assets.xcassets */,
 				BEDFC4A82298055700D178CD /* LaunchScreen.storyboard */,
 				BEDFC4AB2298055700D178CD /* Info.plist */,
+				BEE15D4522A1772300C5C055 /* MainViewController.swift */,
+				BEE15D4722A1C24D00C5C055 /* TableCellController.swift */,
+				BEE15D4D22A1DA7F00C5C055 /* URLCellTable.swift */,
 			);
 			path = WhetherSwift;
 			sourceTree = "<group>";
@@ -288,8 +297,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEDFC4A22298055600D178CD /* ViewController.swift in Sources */,
+				BEE15D4822A1C24D00C5C055 /* TableCellController.swift in Sources */,
+				BEE15D4E22A1DA7F00C5C055 /* URLCellTable.swift in Sources */,
 				BEDFC4A02298055600D178CD /* AppDelegate.swift in Sources */,
 				BE4DC2ED229C2EA2001269FA /* SearchTextField.swift in Sources */,
+				BEE15D4622A1772300C5C055 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
