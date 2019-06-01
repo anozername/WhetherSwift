@@ -175,9 +175,6 @@
                             <outlet property="delegate" destination="xdz-kp-mth" id="RIr-8v-NDG"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" id="gTv-nY-wco"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HzY-Tr-kBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,6 +186,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="t5w-0z-olW"/>
-        <segue reference="gTv-nY-wco"/>
     </inferredMetricsTieBreakers>
 </document>

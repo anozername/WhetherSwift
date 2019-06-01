@@ -79,7 +79,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let task = weatherClient.weather(for: weatherClient.citiesSuggestions(for: input)[0], completion: { response in
             if let data = response {
                 print("response ok")
-                self.TextZone.text = "Message : \(data)" // 63 sec pending
+                self.TextZone.text = "Message : \(data)"
                 semaphore.signal()
             }
         })
@@ -94,11 +94,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         Spinn.stopAnimating()
         TabBarFavorite.isHidden = false
-        do {
-            AddToFavorites.setValue(try City(from : input as! Decoder), forKey: "city")
-        } catch {
-            print("dommage")
-        }
+        AddToFavorites.setValue(weatherClient.citiesSuggestions(for: input)[0], forKey: "city")
     }
 }
 
