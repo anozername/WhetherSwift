@@ -13,7 +13,7 @@ import Weather
 
 public var favoriteCities: [City] = []
 
-let weatherClient = WeatherClient(key: "d4398ab9c5924d563949cf24f6881e50") // d4398ab9c5924d563949cf24f6881e50 or e7a6caa465aee8f94b57375dde1ba754
+let weatherClient = WeatherClient(key: "e7a6caa465aee8f94b57375dde1ba754") // d4398ab9c5924d563949cf24f6881e50 or e7a6caa465aee8f94b57375dde1ba754
 
 class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var InputField: SearchTextField!
@@ -26,6 +26,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var AddToFavorites: UITabBarItem!
     @IBOutlet weak var TabBarFavorite: UITabBar!
     override func viewDidLoad() {
+        print("qsdf")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         InputField.delegate = self
@@ -67,7 +68,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func SubmitTabBar(_ sender: UITabBarItem) {
-        favoriteCities.append(sender.value(forKey: "city") as! City)
+        favoriteCities.append(weatherClient.citiesSuggestions(for: input)[0])
     }
 
     @IBAction func SubmitButton(_ sender: UIButton) {
@@ -94,7 +95,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         Spinn.stopAnimating()
         TabBarFavorite.isHidden = false
-        AddToFavorites.setValue(weatherClient.citiesSuggestions(for: input)[0], forKey: "city")
+        favoriteCities.append(weatherClient.citiesSuggestions(for: input)[0])
+        //AddToFavorites.setValue(weatherClient.citiesSuggestions(for: input)[0], forKey: "city")
+        
     }
 }
 

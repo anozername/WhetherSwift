@@ -37,7 +37,7 @@ class TableCellController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let cellViewModel = cellViewModels[indexPath.row]
         cell.textLabel?.text = formatter.string(from: cellViewModel.date)
-        cell.detailTextLabel?.text = String(cellViewModel.temperature)
+        //cell.detailTextLabel?.text = String(cellViewModel.temperature)
         cell.imageView?.image = cellViewModel.weather[0].icon
         return cell
     }
