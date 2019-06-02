@@ -9,12 +9,19 @@
 import UIKit
 import Weather
 
+var selected: String = " "
+
 class TableCellController: UITableViewController {
     var TextZone = " "
+  
+    @IBOutlet var table: UITableView!
+    
     var cellViewModels = [Forecast]()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let semaphore = DispatchSemaphore(value: 0)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(favoriteCities)
+        table.reloadData()
+        /*let semaphore = DispatchSemaphore(value: 0)
         for city in favoriteCities {
             let task = weatherClient.weather(for: city, completion: { response in
                 if let data = response {
@@ -24,21 +31,31 @@ class TableCellController: UITableViewController {
                 }
             })
             semaphore.wait()
-        }
+        }*/
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section : Int) -> Int {
-        return cellViewModels.count
+        return favoriteCities.count
     }
     
+   /* override func prepare(for segue: UIStoryboardSegue, sender: UITableViewCell) {
+        if (segue.identifier == "WEATHER") {
+            
+        }
+    }*/
+    
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selected = favoriteCities[indexPath.row].name
+    }
+        
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let cellViewModel = cellViewModels[indexPath.row]
-        cell.textLabel?.text = formatter.string(from: cellViewModel.date)
+        //let formatter = DateFormatter()
+        //formatter.dateFormat = "yyyy-MM-dd"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ville", for: indexPath)
+        cell.textLabel?.text = favoriteCities[indexPath.row].name
+        
         //cell.detailTextLabel?.text = String(cellViewModel.temperature)
-        cell.imageView?.image = cellViewModel.weather[0].icon
+        //cell.imageView?.image = cellViewModel.weather[0].icon
         return cell
     }
     
